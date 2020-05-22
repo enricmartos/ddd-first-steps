@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import tv.codely.mooc.courses.application.create.CourseCreatorFirstImpl;
 import tv.codely.shared.domain.DomainError;
 import tv.codely.shared.domain.bus.command.CommandBus;
 import tv.codely.shared.domain.bus.command.CommandHandlerExecutionError;
@@ -15,31 +16,22 @@ import tv.codely.shared.infrastructure.spring.ApiController;
 import java.util.HashMap;
 
 @RestController
-public final class CoursesPutController extends ApiController {
-    public CoursesPutController(
-        QueryBus queryBus,
-        CommandBus commandBus
-    ) {
-        super(queryBus, commandBus);
+public final class CoursesPutControllerFirstImpl {
+    private CourseCreatorFirstImpl creator;
+
+    public CoursesPutControllerFirstImpl(CourseCreatorFirstImpl creator) {
+        this.creator = creator;
     }
 
     @PutMapping(value = "/courses/{id}")
-    public ResponseEntity<String> index(
-        @PathVariable String id,
-        @RequestBody RequestFirstImpl request
-    ) throws CommandHandlerExecutionError {
-//        dispatch(new CreateCourseCommand(id, request.name(), request.duration()));
-
+    public ResponseEntity<String> index(@PathVariable String id, @RequestBody RequestFirstImpl request) {
+        creator.create(id, request.name(), request.name());
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @Override
-    public HashMap<Class<? extends DomainError>, HttpStatus> errorMapping() {
-        return null;
-    }
 }
 
-final class Request {
+final class RequestFirstImpl {
     private String name;
     private String duration;
 
