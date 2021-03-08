@@ -1,12 +1,14 @@
 package tv.codely.mooc.courses.infrastructure.persistence;
 
+import org.springframework.stereotype.Repository;
 import tv.codely.mooc.courses.domain.CourseFirstImpl;
 import tv.codely.mooc.courses.domain.CourseRepositoryFirstImpl;
 
 import java.util.HashMap;
 import java.util.Optional;
 
-public final class InMemoryCourseRepositoryFirstImpl implements CourseRepositoryFirstImpl {
+@Repository
+public class InMemoryCourseRepositoryFirstImpl implements CourseRepositoryFirstImpl {
     private HashMap<String, CourseFirstImpl> courses = new HashMap<>();
 
     @Override

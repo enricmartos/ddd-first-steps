@@ -2,11 +2,7 @@ package tv.codely.mooc.courses.infrastructure.persistence;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
-import tv.codely.mooc.courses.CoursesModuleInfrastructureTestCase;
-import tv.codely.mooc.courses.domain.Course;
 import tv.codely.mooc.courses.domain.CourseFirstImpl;
-import tv.codely.mooc.courses.domain.CourseIdMother;
-import tv.codely.mooc.courses.domain.CourseMother;
 
 import java.util.Optional;
 

@@ -7,13 +7,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import tv.codely.mooc.courses.application.create.CourseCreatorFirstImpl;
-import tv.codely.shared.domain.DomainError;
-import tv.codely.shared.domain.bus.command.CommandBus;
-import tv.codely.shared.domain.bus.command.CommandHandlerExecutionError;
-import tv.codely.shared.domain.bus.query.QueryBus;
-import tv.codely.shared.infrastructure.spring.ApiController;
-
-import java.util.HashMap;
 
 @RestController
 public final class CoursesPutControllerFirstImpl {

@@ -47,4 +47,12 @@ public class CourseFirstImpl {
             Objects.equals(duration, that.duration);
     }
 
+    @Override
+    public String toString() {
+        return "CourseFirstImpl{" +
+            "id='" + id + '\'' +
+            ", name='" + name + '\'' +
+            ", duration='" + duration + '\'' +
+            '}';
+    }
 }
