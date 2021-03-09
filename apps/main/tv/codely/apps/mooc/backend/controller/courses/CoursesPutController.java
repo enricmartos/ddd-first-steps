@@ -17,14 +17,14 @@ public final class CoursesPutController {
     }
 
     @PutMapping(value = "/courses/{id}")
-    public ResponseEntity<String> index(@PathVariable String id, @RequestBody RequestFirst request) {
-        creator.create(id, request.name(), request.name());
+    public ResponseEntity<String> index(@PathVariable String id, @RequestBody Request request) {
+        creator.create(id, request.name(), request.duration());
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
 }
 
-final class RequestFirst {
+final class Request {
     private String name;
     private String duration;
 
