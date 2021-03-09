@@ -2,12 +2,12 @@ package tv.codely.mooc.courses.domain;
 
 import java.util.Objects;
 
-public class CourseFirstImpl {
+public class Course {
     private String id;
     private String name;
     private String duration;
 
-    public CourseFirstImpl(String id, String name, String duration) {
+    public Course(String id, String name, String duration) {
         this.id = id;
         this.name = name;
         this.duration = duration;
@@ -41,7 +41,7 @@ public class CourseFirstImpl {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CourseFirstImpl that = (CourseFirstImpl) o;
+        Course that = (Course) o;
         return Objects.equals(id, that.id) &&
             Objects.equals(name, that.name) &&
             Objects.equals(duration, that.duration);

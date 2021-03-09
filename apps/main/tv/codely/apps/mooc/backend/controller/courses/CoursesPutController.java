@@ -6,25 +6,25 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import tv.codely.mooc.courses.application.create.CourseCreatorFirstImpl;
+import tv.codely.mooc.courses.application.create.CourseCreator;
 
 @RestController
-public final class CoursesPutControllerFirstImpl {
-    private CourseCreatorFirstImpl creator;
+public final class CoursesPutController {
+    private CourseCreator creator;
 
-    public CoursesPutControllerFirstImpl(CourseCreatorFirstImpl creator) {
+    public CoursesPutController(CourseCreator creator) {
         this.creator = creator;
     }
 
     @PutMapping(value = "/courses/{id}")
-    public ResponseEntity<String> index(@PathVariable String id, @RequestBody RequestFirstImpl request) {
+    public ResponseEntity<String> index(@PathVariable String id, @RequestBody RequestFirst request) {
         creator.create(id, request.name(), request.name());
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
 }
 
-final class RequestFirstImpl {
+final class RequestFirst {
     private String name;
     private String duration;
 

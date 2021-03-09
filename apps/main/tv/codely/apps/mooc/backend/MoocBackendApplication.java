@@ -14,10 +14,4 @@ import java.util.HashMap;
     value = {"tv.codely.shared", "tv.codely.mooc", "tv.codely.apps.mooc.backend"}
 )
 public class MoocBackendApplication {
-    public static HashMap<String, Class<?>> commands() {
-        return new HashMap<String, Class<?>>() {{
-//            put("domain-events:mysql:consume", ConsumeMySqlDomainEventsCommand.class);
-//            put("domain-events:rabbitmq:consume", ConsumeRabbitMqDomainEventsCommand.class);
-        }};
-    }
 }
