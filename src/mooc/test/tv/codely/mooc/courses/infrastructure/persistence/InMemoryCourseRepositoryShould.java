@@ -1,6 +1,5 @@
 package tv.codely.mooc.courses.infrastructure.persistence;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import tv.codely.mooc.courses.domain.Course;
 
@@ -15,7 +14,6 @@ final class InMemoryCourseRepositoryShould {
     void save_a_course() {
         InMemoryCourseRepository repository = new InMemoryCourseRepository();
 
-        // ausencia de excepciones verifica que el test es correcto
         repository.save(new Course("some-id", "some-name", "some-duration"));
     }
 
@@ -34,6 +32,6 @@ final class InMemoryCourseRepositoryShould {
     void not_return_a_non_existing_course() {
         InMemoryCourseRepository repository = new InMemoryCourseRepository();
 
-        Assert.assertFalse(repository.search("non-existing-id").isPresent());
+        assertFalse(repository.search("non-existing-id").isPresent());
     }
 }
