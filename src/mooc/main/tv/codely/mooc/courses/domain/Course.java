@@ -2,57 +2,56 @@ package tv.codely.mooc.courses.domain;
 
 import java.util.Objects;
 
-public class Course {
-    private String id;
-    private String name;
-    private String duration;
+public final class Course {
+    private final CourseId       id;
+    private final CourseName     name;
+    private final CourseDuration duration;
 
-    public Course(String id, String name, String duration) {
-        this.id = id;
-        this.name = name;
+    public Course(CourseId id, CourseName name, CourseDuration duration) {
+        this.id       = id;
+        this.name     = name;
         this.duration = duration;
     }
 
-    public String id() {
+    private Course() {
+        id       = null;
+        name     = null;
+        duration = null;
+    }
+
+    public static Course create(CourseId id, CourseName name, CourseDuration duration) {
+
+        return new Course(id, name, duration);
+    }
+
+    public CourseId id() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String name() {
+    public CourseName name() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String duration() {
+    public CourseDuration duration() {
         return duration;
-    }
-
-    public void setDuration(String duration) {
-        this.duration = duration;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Course that = (Course) o;
-        return Objects.equals(id, that.id) &&
-            Objects.equals(name, that.name) &&
-            Objects.equals(duration, that.duration);
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Course course = (Course) o;
+        return id.equals(course.id) &&
+               name.equals(course.name) &&
+               duration.equals(course.duration);
     }
 
     @Override
-    public String toString() {
-        return "CourseFirstImpl{" +
-            "id='" + id + '\'' +
-            ", name='" + name + '\'' +
-            ", duration='" + duration + '\'' +
-            '}';
+    public int hashCode() {
+        return Objects.hash(id, name, duration);
     }
 }
