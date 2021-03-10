@@ -1,6 +1,7 @@
 package tv.codely.mooc.courses.infrastructure.persistence;
 
 import org.junit.jupiter.api.Test;
+import tv.codely.mooc.courses.CourseModuleInfrastructureTestCase;
 import tv.codely.mooc.courses.domain.Course;
 import tv.codely.mooc.courses.domain.CourseIdMother;
 import tv.codely.mooc.courses.domain.CourseMother;
@@ -11,31 +12,25 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
-final class InMemoryCourseRepositoryShould {
+final class InMemoryCourseRepositoryShould extends CourseModuleInfrastructureTestCase {
     @Test
     void save_a_course() {
-        InMemoryCourseRepository repository = new InMemoryCourseRepository();
         Course course = CourseMother.random();
 
-
-        repository.save(course);
+        inMemoryCourseRepository.save(course);
     }
 
     @Test
     void return_an_existing_course() {
-        InMemoryCourseRepository repository = new InMemoryCourseRepository();
-
         Course course = CourseMother.random();
 
-        repository.save(course);
+        inMemoryCourseRepository.save(course);
 
-        assertEquals(Optional.of(course), repository.search(course.id()));
+        assertEquals(Optional.of(course), inMemoryCourseRepository.search(course.id()));
     }
 
     @Test
     void not_return_a_non_existing_course() {
-        InMemoryCourseRepository repository = new InMemoryCourseRepository();
-
-        assertFalse(repository.search(CourseIdMother.random()).isPresent());
+        assertFalse(inMemoryCourseRepository.search(CourseIdMother.random()).isPresent());
     }
 }
