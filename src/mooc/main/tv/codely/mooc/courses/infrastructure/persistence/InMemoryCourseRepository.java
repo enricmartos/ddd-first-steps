@@ -13,7 +13,7 @@ public class InMemoryCourseRepository implements CourseRepository {
 
     @Override
     public void save(Course course) {
-        courses.put(course.getId(), course);
+        courses.put(course.id(), course);
     }
 
     @Override

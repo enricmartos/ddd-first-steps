@@ -13,7 +13,7 @@ public class Course {
         this.duration = duration;
     }
 
-    public String getId() {
+    public String id() {
         return id;
     }
 
@@ -21,7 +21,7 @@ public class Course {
         this.id = id;
     }
 
-    public String getName() {
+    public String name() {
         return name;
     }
 
@@ -29,7 +29,7 @@ public class Course {
         this.name = name;
     }
 
-    public String getDuration() {
+    public String duration() {
         return duration;
     }
 

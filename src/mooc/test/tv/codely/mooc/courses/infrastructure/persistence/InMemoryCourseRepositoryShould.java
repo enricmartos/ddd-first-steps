@@ -25,7 +25,7 @@ final class InMemoryCourseRepositoryShould {
 
         repository.save(course);
 
-        assertEquals(Optional.of(course), repository.search(course.getId()));
+        assertEquals(Optional.of(course), repository.search(course.id()));
     }
 
     @Test

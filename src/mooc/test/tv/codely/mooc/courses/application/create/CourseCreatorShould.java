@@ -1,6 +1,6 @@
 package tv.codely.mooc.courses.application.create;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import tv.codely.mooc.courses.domain.Course;
 import tv.codely.mooc.courses.domain.CourseRepository;
 
@@ -16,9 +16,12 @@ public final class CourseCreatorShould {
         CourseRepository repository = mock(CourseRepository.class);
         CourseCreator creator = new CourseCreator(repository);
 
-        Course course = new Course("some-id", "some-name", "some-duration");
+        String id = "some-id";
+        String name = "some-name";
+        String duration = "some-duration";
+        Course course = new Course(id, name, duration);
 
-        creator.create(course.getId(), course.getName(), course.getDuration());
+        creator.create(new CreateCourseRequest(course.id(), course.name(), course.duration()));
 
         verify(repository, atLeastOnce()).save(course);
     }
