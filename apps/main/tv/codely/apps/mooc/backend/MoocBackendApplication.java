@@ -6,8 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 import tv.codely.shared.domain.Service;
 
-import java.util.HashMap;
-
+// Disable Hibernate auto configuration because we have our own custom config
 @SpringBootApplication(exclude = HibernateJpaAutoConfiguration.class)
 @ComponentScan(
     includeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Service.class),
